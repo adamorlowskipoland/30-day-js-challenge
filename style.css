@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #018ded;
+    background-size: cover;
+    font-family: "helvetica neuce";
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    
+}
