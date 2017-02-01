@@ -1,6 +1,9 @@
 const secHand = document.querySelector(".sec-hand");    //grabbing sec-hand div
 const minHand = document.querySelector(".min-hand");    //grabbing min-hand div
 const hourHand = document.querySelector(".hour-hand");  //grabbing hour-hand div
+const date = document.querySelector(".date");
+
+const secP = "";
 
 function setDate() {
 
@@ -20,6 +23,20 @@ function setDate() {
     secHand.style.transform = `rotate(${secDeg}deg)`;   // setting rotate deg based on secDeg
     minHand.style.transform = `rotate(${minDeg}deg)`;     // setting rotate deg based on minDeg
     hourHand.style.transform = `rotate(${hourDeg}deg)`;
+    
+    
+    function pad2(e) {
+        if (e < 10) {
+            e = "0" + e;
+        }
+        
+    const hms = hour + ":" + min + ":" + e;
+    date.innerHTML = hms;
+    }
+    pad2(sec);
+    
+//    const hms = hour + ":" + min + ":" + sec;
+//    date.innerHTML = hms;
 }
 
 
