@@ -43,7 +43,7 @@ body {
 .hand {
     width: 50%;
     height: 6px;
-    background: #000;
+    background: #333333;
     position: absolute;
     top: 50%;
     border-radius: 5%;
@@ -54,7 +54,18 @@ body {
 
 .sec-hand {
     background: #ffc600;
-    border-radius: 50%;
+/*    border-radius: 50%;*/
+    height: 1px;
+}
+
+.min-hand {
+    background: #035206;
     height: 3px;
 }
 
+.date {
+    margin-top: 80px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1rem;
+}
