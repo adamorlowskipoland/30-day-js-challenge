@@ -24,16 +24,22 @@ function setDate() {
     minHand.style.transform = `rotate(${minDeg}deg)`;     // setting rotate deg based on minDeg
     hourHand.style.transform = `rotate(${hourDeg}deg)`;
     
-    
-    function pad2(e) {
+    // function adding 0 where 
+    function digitClock(e, f, g) {
         if (e < 10) {
             e = "0" + e;
         }
+        if (f < 10) {
+            f = "0" + f;
+        }
+        if (g < 10) {
+            g = "0" + g;
+        }
         
-    const hms = hour + ":" + min + ":" + e;
+    const hms = g + ":" + f + ":" + e;
     date.innerHTML = hms;
     }
-    pad2(sec);
+    digitClock(sec, min, hour);
     
 //    const hms = hour + ":" + min + ":" + sec;
 //    date.innerHTML = hms;
