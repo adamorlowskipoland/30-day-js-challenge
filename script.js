@@ -38,6 +38,8 @@ const fullNames = inventors.map(function(inventor) {
 //const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
 console.log(fullNames);
 
+
+
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 const ordered = inventors.sort(function(firstPerson, secondPerson) {
@@ -85,11 +87,20 @@ console.table(oldest);
 
 
 
-
-
 // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/category:Boulevards_in_Paris
+const category = document.querySelector('.mw-category');
+// const links = document.querySelectorAll("a");   // needed to turn this nodeList into array to use map function later
+// can be done two ways. More clear:
+const links = Array.from(category.querySelectorAll('a'));
+//or using spread technic
+//const links = [...category.querySelectorAll("a")];
 
+
+// NOTE: if you want to use this format of writing notice no ; after map() 
+const de = links
+            .map(link => link.textContent)
+            .filter(streetName => streetName.includes('de'));
 
 
 // 7. sort Exercise
