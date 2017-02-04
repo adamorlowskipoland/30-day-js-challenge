@@ -11,10 +11,19 @@ const inventors = [
 
 const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Beval, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrelle, Augistine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
-console.log(people.length);
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were borin in the 1500's
+const fifteen = inventors.filter(function(inventor) {
+    if (inventor.year >= 1500 && inventor.year < 1600) {
+        return true; // That means it will keep it
+    }    
+});
+// This can also be written like this:
+//const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+
+console.table(fifteen);
+
 
 
 
