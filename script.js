@@ -56,10 +56,34 @@ console.table(ordered);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
+const totalYears = inventors.reduce(function (total, inventor) {
+    return total += inventor.passed - inventor.year;
+}, 0)
+// This can also be written like this with arrow function:
+//const totalYears = inventors.reduce((total, inventor) => {
+//    return total += (inventor.passed - inventor.year);
+//}, 0);
+console.log(totalYears);
 
 
 
 // 5. Sort inventors by years lived
+const oldest = inventors.sort(function(a, b) {
+    const lastGuy = a.passed - a.year;
+    const nextGuy = b.passed - b.year;
+    
+//    if (lastGuy > nextGuy) {
+//        return -1;
+//    } else {
+//        return 1;
+//    }
+// if can be written in one line statement
+    return lastGuy > nextGuy ? -1 : 1;
+});
+console.table(oldest);
+
+
+
 
 
 
