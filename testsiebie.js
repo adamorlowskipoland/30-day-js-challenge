@@ -1,43 +1,39 @@
-function workClock() {
+const secHand = document.querySelector(".sec-hand");
+const minHand = document.querySelector(".min-hand");
+const hourHand = document.querySelector(".hour-hand");
+const digitClock = document.querySelector(".date");
+
+function clock () {
+    
+    
+    
     const now = new Date();
     const sec = now.getSeconds();
     const min = now.getMinutes();
     const hour = now.getHours();
     
-    const secDeg = ((sec / 60) * 360) + 90;
-    const minDeg = ((min / 60) * 360) + 90;
-    const hourDeg = ((hour / 12) * 360) + 90;
-    
-    const secHand = document.querySelector(".sec-hand");
-    const minHand = document.querySelector(".min-hand");
-    const hourHand = document.querySelector(".hour-hand");
+    const secDeg = ((sec * 360) / 60) + 90;
+    const minDeg = ((min * 360) / 60) + 90;
+    const hourDeg = ((hour * 360) / 12) + 90;
+    console.log(hourDeg);  
     
     secHand.style.transform = `rotate(${secDeg}deg)`;
     minHand.style.transform = `rotate(${minDeg}deg)`;
     hourHand.style.transform = `rotate(${hourDeg}deg)`;
     
-    
-    
-    function digitalClock(a, b, c) {
-        if (a < 10) {
-            a = "0" + a;
-        }
-        if (b < 10) {
-            b = "0" + b;
-        }
-        if (c < 10) {
-            c = "0" + c;
-        }
-        
-        const hms = a + ":" + b + ":" + c;
-        
-        const date = document.querySelector(".date");
-        date.innerHTML = hms;
-    }
-    
-    digitalClock(hour, min, sec);
-    
-
+    digitClock.innerHTML = addZero(hour) + ":" + addZero(min) + ":" + addZero(sec);
 }
 
-setInterval(workClock, 1000);
+
+
+
+setInterval(clock, 1000);
+
+
+function addZero (elem) {
+    if (elem < 10) {
+        return "0" + elem;
+    } else {
+        return elem;
+    }
+}
