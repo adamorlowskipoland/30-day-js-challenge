@@ -5,8 +5,6 @@ const digitClock = document.querySelector(".date");
 
 function clock () {
     
-    
-    
     const now = new Date();
     const sec = now.getSeconds();
     const min = now.getMinutes();
@@ -21,19 +19,15 @@ function clock () {
     minHand.style.transform = `rotate(${minDeg}deg)`;
     hourHand.style.transform = `rotate(${hourDeg}deg)`;
     
+    function addZero (elem) {
+        if (elem < 10) {
+            return "0" + elem;
+        } else {
+            return elem;
+        }
+    }
     digitClock.innerHTML = addZero(hour) + ":" + addZero(min) + ":" + addZero(sec);
 }
-
-
-
-
 setInterval(clock, 1000);
 
 
-function addZero (elem) {
-    if (elem < 10) {
-        return "0" + elem;
-    } else {
-        return elem;
-    }
-}
