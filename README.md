@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 30_day_js_challenge
 I started a challenge to make a 30 small web apps. <br>
 After a week or around I’m going to repeat the task to test myself. <br>
