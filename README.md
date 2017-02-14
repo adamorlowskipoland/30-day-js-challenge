@@ -2,15 +2,15 @@
 I started a challenge to make a 30 small web apps. <br>
 After a week or around I’m going to repeat the task to test myself. <br>
 List of what to expect:<br>
-1 JavaScript Drum Kit <br>
-2 CSS + JS Clock <br>
-3 Playing with CSS Variables and JS <br>
-4 Array Cardio Day 1 <br>
-5 Flex Panels Image Gallery <br>
-6 Ajax Type Ahead <br>
-7 Array Cardio Day 2 <br>
-8 Fun with HTML% Canvas <br>
-9 14 Must Know Dev Tools Tricks <br>
+01 JavaScript Drum Kit <br>
+02 CSS + JS Clock <br>
+03 Playing with CSS Variables and JS <br>
+04 Array Cardio Day 1 <br>
+05 Flex Panels Image Gallery <br>
+06 Ajax Type Ahead <br>
+07 Array Cardio Day 2 <br>
+08 Fun with HTML Canvas <br>
+09 14 Must Know Dev Tools Tricks <br>
 10 Hold Shift to Check Multiple Checkboxes <br>
 11 Custom HTML5 Video Player <br>
 12 Key Sequence Detection (KONAMI CODE) <br>
