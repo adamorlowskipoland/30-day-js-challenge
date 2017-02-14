@@ -4,7 +4,9 @@ const people = [
     { name: 'Irv', year: 1970 },
     { name: 'Lux', year: 2015 }
 ];
-
+    // Array.prototype.findIndex()
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
 const comments = [
     { text: 'Love this!', id: 523423 },
     { text: 'Super good', id: 823423 },
@@ -14,30 +16,38 @@ const comments = [
 ];
 
 
-//Tasks
+//Task 1
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+
 //one way
 //    const isAdult = people.some(function(person) { 
 //        (new Date().getFullYear() - person.year ) > 18; return true;
 //    });
-    //console.log(isAdult);
-    //// cool thing is if you consol isAdult in {} it will show object and then true
-    //console.log({isAdult});
+
+//// cool thing is if you consol isAdult in {} it will show object and then true
+
 //second vertion - shorter version
     const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year > 18 );
     console.log({isAdult});
 
+
+
+
+//Task 2
     // Array.prototype.every() // is everyone 19 or older?
     const isEvery = people.every(person => ((new Date()).getFullYear()) - person.year > 18 );
-    console.log({isEvery});
-//    const areAllAdults = people.every( function () {
-//        if (people[i] > 18) {
-//            return true;
-//        }
-//    });
-//    console.log(areAllAdults);
 
+//different way
+//    const isEvery = people.every(function (person) {
+//        if ((new Date().getFullYear() - person.year) > 18) { return true; }
+//    });
+    console.log({isEvery});
+
+
+
+
+//Task 3
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
@@ -49,6 +59,9 @@ const comments = [
     const comment = comments.find(comment => comment.id === 823423);
     console.log(comment);
 
+
+
+//Task 4
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
