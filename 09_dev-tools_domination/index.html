@@ -18,30 +18,84 @@
         p.addEventListener('click', makeGreen);
         
         // Regular
+        console.log('hello');
         
         // Interpolated
+        console.log('Hello I am a %s string!', 'short'); // %s
+        // OR
+        console.log(`Hello I am a ${"short"} string!`); // ES6 
+        
         
         // Styled
+        console.log('%c I am a big text', 'font-size: 20px; background: red;'); //%c
         
         // Warning!
+        console.warn('Yayks... - Warning!');
         
         // Error :|
+        console.error('This is an error :|');
         
         // Info
+        console.info('Fun fact: Crocodiles eat 3-4 people a year');
         
         // Testing
+//        console.assert( 1 === 3, 'Test 1 === 3 failed. 1 !== 3');
+        const paragrapth = document.querySelector('p');
+        console.assert(paragrapth.classList.contains('yayks'), 'That is not correct' );
         
         // Clearing
+//        console.clear();
         
         // Viewing DOM elements
+        console.log(paragrapth);
+        console.dir(paragrapth);
         
         // Grouping together
+        dogs.forEach( dog => {
+            console.groupCollapsed(`${dog.name}`);
+                console.log(`This is ${dog.name}`);
+                console.log(`${dog.name} is ${dog.age} years old`);
+                console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
+        });
         
         // Counting
-        
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
         // Timing
         
+        // example from tutorial
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data => {
+            console.timeEnd('fetching data');
+            console.log(data);
+        });
         
+        // my example
+        function countPow() {
+            var total = 0;
+            for (var i = 1; i < 11; i++) {
+                total += Math.pow(i, i);
+            };
+            console.log(total);
+        };
+        countPow();
+        console.time(countPow);
+        console.timeEnd(countPow);
+        
+        // Table
+        console.table(dogs);
     </script>
 </body>
 </html>
