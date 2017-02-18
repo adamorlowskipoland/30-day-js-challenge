@@ -57,7 +57,17 @@ function toggleFullScreen () {
     } else if (video.webkitRequestFullScreen) {
         video.webkitRequestFullScreen();
     }
+    if (video.exitFullScreen) {
+        video.exitFullScreen();
+    } else if (video.webkitExitFullScreen) {
+        video.webkitExitFullScreen();
+    } else if (video.mozCancelFullScreen) {
+        video.mozCancelFullScreen();
+    }
 };
+//document.webkitExitFullscreen();
+//document.mozCancelFullscreen();
+//document.exitFullscreen();
 
 
 
