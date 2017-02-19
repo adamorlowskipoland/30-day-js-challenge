@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Key Detection - KONAMI Code</title>
+    <title>Key Detection - Konami Code</title>
+    <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+   <h1>Type 'wesper' or Konami Code</h1>
     <script>
+        var pressed = [];
+        const secretCode = 'wesper';
         
+        window.addEventListener('keyup', (e) => {
+            pressed.push(e.key);
+            pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+            console.log(pressed);
+            if ( pressed.join('').includes(secretCode) ) { // can also be pressed.join('') === secretCode
+                console.log('ding');
+                cornify_add();
+            }
+        });
     </script>
 </body>
 </html>
