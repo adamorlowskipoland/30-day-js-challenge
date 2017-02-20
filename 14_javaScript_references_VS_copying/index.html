@@ -8,31 +8,61 @@
 
   <script>
     // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
+    
+    let name = 'Adam';
+    let name2 = name;
+    console.log(name, name2);
+    name = 'Orlov';
+    console.log(name, name2);
+//  so changes the original variable doesn't affect the copy 
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
+    const team = players;   //it's not copy; just giving refferences to
+    console.log(team);
 
     // You might think we can just do something like this:
-
     // however what happens when we update that array?
-
+//    team[3] = 'Lux'; // uncomment to see that this changes the original array
+    console.log(team);
+    
     // now here is the problem!
-
     // oh no - we have edited the original array too!
-
+    console.log(players);
+    
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-
     // So, how do we fix this? We take a copy instead!
-
+    const team2 = Array.from(players);  // making copy
+    team2[3] = 'Lu';    // change value
+    console.log(team2); // changed
+    console.log(players); // untouched
+    
     // one day
-
+    const team3 = players.slice();
+    console.log(team3);
+    team3[3] = 'Lux';
+    console.log(team3);
+    console.log(players);
     // or create a new array and concat the old one in
-
+    const team4 = [].concat(players);
+    console.log(team4);
+    team4[3] = 'LuxX';
+    console.log(team4);
+    console.log(players);
     // or use the new ES6 Spread
-
+    const team5 = [...players];
+    console.log(team5);
     // now when we update it, the original one isn't changed
+    team5[3] = 'LuLuLu';
+    console.log(team5);
+    console.log(players);
 
     // The same thing goes for objects, let's say we have a person object
 
