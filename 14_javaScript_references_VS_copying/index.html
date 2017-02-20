@@ -106,9 +106,19 @@
     
     console.log(orlov.social);
     orlov2.social.twitter = '@orlov2';
-    console.log(orlov.social);
+    console.log(orlov.social); // assigning has changed also the original social value
     console.log(orlov2.social);
+//  if you want to copy deep you can write your own or find a function 'copy deep' on the internet
 
+//  there is one more way - not recomended though
+    const orlov3 = JSON.parse(JSON.stringify(orlov));
+//  so what does JSON does? 
+//  basically it changes object value from orlov into string, then back (parse) into object, creating new copy of it.
+//  A big disadvantage to this can be lack of performance with big and many objects
+    console.log(orlov3);
+    orlov3.social.twitter = '@orlov3'; // didn't change the original social value in object orlov
+    console.log(orlov3.social);
+    console.log(orlov.social);
   </script>
 
 </body>
