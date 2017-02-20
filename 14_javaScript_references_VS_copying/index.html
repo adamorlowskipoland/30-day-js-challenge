@@ -65,16 +65,49 @@
     console.log(players);
 
     // The same thing goes for objects, let's say we have a person object
-
+    const person = {
+        name: 'Orlov',
+        age: 25
+    };
     // with Objects
-
+    const person2 = person;
+//    person2.number = 88; // uncomment to see that this gives changes also to person
     // and think we make a copy:
-
+    console.log(person);
+    console.log(person2);
+//  we didn't. person2.number gave also number to person, because it is only refference
     // how do we take a copy instead?
+    const person3 = Object.assign({}, person, { number: 88 });
+    console.log(person);
+    console.log(person3);
+//  so what is happening here. Object.assign( creates empty object {}, assign to it all value from person, and you can add additional value to it {a: x, b: y} <- this is optional )
 
     // We will hopefully soon see the object ...spread
+//    it'd go like this... hopefully
+//    const person4 = {...person};
 
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    // Things to note - this is only 1 level deep - and it will only work on 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    const orlov = {
+        name: 'Orlov',
+        age: 29,
+        social: {
+            twitter: '@orlov',
+            facebook: 'orlov.dev'
+        }
+    }
+    console.log(orlov);
+      
+    // trying to make a copy of orlov
+    const orlov2 = Object.assign( {}, orlov ); 
+//  this will clone the object and changing assigment to it won't change assigment to original one (orlov) BUT, changing assigment in social: will affect the original
+    orlov2.age = 30;
+    console.log(orlov);
+    console.log(orlov2);
+    
+    console.log(orlov.social);
+    orlov2.social.twitter = '@orlov2';
+    console.log(orlov.social);
+    console.log(orlov2.social);
 
   </script>
 
