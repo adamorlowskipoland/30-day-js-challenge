@@ -38,7 +38,7 @@
             const height = hero.offsetHeight;
             let {offsetX: x, offsetY: y} = e;
             
-//            console.log(this,e.target); // this is hero ; e.target can also be h1 in hero
+//            console.log(this,e.target); // this is hero ; e.target can also be h1 in hero when you mouseover it
             if (this !== e.target) {
                 x = x + e.target.offsetLeft;
                 y = y + e.target.offsetTop;     // so basically we are adding x and y of the element we are currently on + this element starting point from the left and the top
