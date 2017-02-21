@@ -16,6 +16,7 @@ function addItem (e) {
 //    localStorage.getItem
 //    localStorage.removeItem
     localStorage.setItem("items", JSON.stringify(items));
+    showToggleBtns();
     
     this.reset();
 }
@@ -39,6 +40,7 @@ function toggleDone(e) {
     items[elIndex].done = !items[elIndex].done;
     localStorage.setItem("items", JSON.stringify(items));
     populateList(items, itemsList);
+    showToggleBtns();
     
     console.log();
 }
@@ -50,6 +52,22 @@ populateList(items, itemsList);
 
 // additional tasks:
 // 1. add check all button
-
 // 2. add uncheck all button
 // 3. add clear all button remove local storage
+
+
+// adding btn to show only when the list is not empty.
+const toggleBtns = document.getElementById('toggleBtns');
+
+function showToggleBtns() {
+    if (items !== null) {
+        toggleBtns.style.display = 'block';
+    } else {
+        toggleBtns.style.display = 'none';
+    }
+}
+
+
+// ad1.
+
+
