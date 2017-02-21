@@ -2,6 +2,12 @@ const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
 const items = JSON.parse(localStorage.getItem('items')) || [];
 
+
+const toggleBtns = document.getElementById('toggleBtns');
+const checkAll = document.getElementById('checkAll');
+const unCheckAll = document.getElementById('unCheckAll');
+const deleteAll = document.getElementById('deleteAll');
+
 function addItem (e) {
     e.preventDefault();
     const text = (this.querySelector("[name=item]")).value;
@@ -33,6 +39,7 @@ function populateList (plates = [], platesList) { //plates is items ; platesList
     }).join("");
 }
 
+// this event target dataset can be very useful
 function toggleDone(e) {
     if (!e.target.matches('input')) return; // skip this unless it's an input
     const el = e.target;
@@ -49,6 +56,7 @@ addItems.addEventListener('submit', addItem);
 itemsList.addEventListener('click', toggleDone);
 
 populateList(items, itemsList);
+showToggleBtns();
 
 // additional tasks:
 // 1. add check all button
@@ -56,11 +64,10 @@ populateList(items, itemsList);
 // 3. add clear all button remove local storage
 
 
-// adding btn to show only when the list is not empty.
-const toggleBtns = document.getElementById('toggleBtns');
 
+// adding btns to show only when the list is not empty.
 function showToggleBtns() {
-    if (items !== null) {
+    if (items.length !== 0) {
         toggleBtns.style.display = 'block';
     } else {
         toggleBtns.style.display = 'none';
@@ -69,5 +76,61 @@ function showToggleBtns() {
 
 
 // ad1.
+function checkAllitems() {
+    items.forEach(function(item){
+        item.done = true;
+        populateList(items, itemsList);
+        showToggleBtns();
+//        view.display();
+    })
+}
+
+
+// ad2.
+function unCheckAllitems() {
+    items.forEach(function(item){
+        item.done = false;
+        populateList(items, itemsList);
+        showToggleBtns();
+//        view.display();
+    })
+}
+
+function deleteAllitems() {
+    
+}
+
+checkAll.addEventListener('click', checkAllitems);
+unCheckAll.addEventListener('click', unCheckAllitems);
+deleteAll.addEventListener('click', deleteAllitems);
+
+
+
+
+// I will add that later
+//const view = {
+//    display: function() {
+//        populateList(items, itemsList);
+//        showToggleBtns();
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
