@@ -1,6 +1,6 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
-const items = JSON.parse(localStorage.getItem('items')) || [];
+var items = JSON.parse(localStorage.getItem('items')) || [];
 
 
 const toggleBtns = document.getElementById('toggleBtns');
@@ -96,8 +96,12 @@ function unCheckAllitems() {
     })
 }
 
+// ad3.
 function deleteAllitems() {
-    
+    items = [];
+    localStorage.removeItem('items');
+    populateList(items, itemsList);
+    showToggleBtns();
 }
 
 checkAll.addEventListener('click', checkAllitems);
