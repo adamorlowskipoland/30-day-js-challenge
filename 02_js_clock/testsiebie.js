@@ -26,7 +26,10 @@ function clock () {
             return elem;
         }
     }
-    digitClock.innerHTML = addZero(hour) + ":" + addZero(min) + ":" + addZero(sec);
+//    digitClock.innerHTML = addZero(hour) + ":" + addZero(min) + ":" + addZero(sec);
+    // after 2-3 weeks I have found this solution on stack overflow and decided to try it here.
+    // works great, and I don't need function addZero anymore.
+    digitClock.innerHTML = now.toLocaleTimeString();
 }
 setInterval(clock, 1000);
 
