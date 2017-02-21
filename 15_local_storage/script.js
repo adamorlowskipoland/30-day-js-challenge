@@ -47,3 +47,9 @@ addItems.addEventListener('submit', addItem);
 itemsList.addEventListener('click', toggleDone);
 
 populateList(items, itemsList);
+
+// additional tasks:
+// 1. add check all button
+
+// 2. add uncheck all button
+// 3. add clear all button remove local storage
