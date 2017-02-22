@@ -54,6 +54,11 @@
             }
         })
         
+        document.getElementById('bands').innerHTML = sortedBands.map(function(band) {
+            return `<li>${band}</li>`
+        }).join("");
+        
+        console.log(bands);
         console.log(sortedBands);
     </script>
 </body>
