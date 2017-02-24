@@ -4,7 +4,8 @@
   "description": "",
   "main": "scripts.js",
   "scripts": {
-    "start" : "browser-sync start --directory --server --files '*.css, *.html, *.js'"
+    "start" : "browser-sync start --directory --server --files '*.css, *.html, *.js'",
+      "stop" : "pkill --signal SIGINT browser-sync start --directory --server --files '*.css, *.html, *.js'"
   },
   "author": "",
   "license": "ISC",
