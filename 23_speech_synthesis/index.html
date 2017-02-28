@@ -29,12 +29,51 @@
     </div>
 
 <script>
-  const msg = new SpeechSynthesisUtterance();
-  let voices = [];
-  const voicesDropdown = document.querySelector('[name="voice"]');
-  const options = document.querySelectorAll('[type="range"], [name="text"]');
-  const speakButton = document.querySelector('#speak');
-  const stopButton = document.querySelector('#stop');
+    const msg = new SpeechSynthesisUtterance();
+    let voices = [];
+    const voicesDropdown = document.querySelector('[name="voice"]');
+    const options = document.querySelectorAll('[type="range"], [name="text"]');
+    const speakButton = document.querySelector('#speak');
+    const stopButton = document.querySelector('#stop');
+    msg.text = document.querySelector('[name="text"]').value;
+    
+    function populateVoices() {
+        voices = this.getVoices();
+        const voiceOptions = voices.map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`).join("");
+        voicesDropdown.innerHTML = voiceOptions;
+    }
+    
+    function setVoice() {
+        msg.voice = voices.find(voice => voice.name === this.value);
+    }
+    
+    function toggle(startOver = true) {
+        speechSynthesis.cancel();
+        if (startOver) {
+            speechSynthesis.speak(msg);
+        }
+    }
+    
+    function setOption() {
+        console.log(this.name, this.value);
+        msg[this.name] = this.value;
+        toggle();
+    }
+    
+    speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    voicesDropdown.addEventListener('change', setVoice);
+    
+    options.forEach(option => option.addEventListener('change', setOption));
+    speakButton.addEventListener('click', toggle);
+                                //    toggle(false) doesn't work
+//    stopButton.addEventListener('click', toggle.bind(null, false)); // one working solution 
+    
+    stopButton.addEventListener('click', function() {       // second working solution
+        toggle(false);
+    });
+    stopButton.addEventListener('click', () => toggle(false));
+    // in browser put:
+//    speechSynthesis.speak(msg);
 </script>
 
 </body>
