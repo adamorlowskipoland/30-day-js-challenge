@@ -48,6 +48,12 @@ nav {
   z-index: 1;
 }
 
+/*    NOTE: fixed-nav is added to body, by doing targeting like this you get the fixed position to element you want     */
+.fixed-nav nav {
+    position: fixed;
+    box-shadow: 0 5px rbga(0,0,0,0.1);
+}
+
 nav ul {
   margin: 0;
   padding:0;
