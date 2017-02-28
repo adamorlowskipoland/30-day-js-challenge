@@ -23,6 +23,11 @@ body {
   transition: transform 0.5s;
 }
 
+/*    this element is animated thanks to added class to body */
+.fixed-nav .site-wrap {
+    transform: scale(1);
+}
+
 header {
   text-align: center;
   height:50vh;
@@ -48,6 +53,7 @@ nav {
   z-index: 1;
 }
 
+/*    this element is animated thanks to added class to body */
 /*    NOTE: fixed-nav is added to body, by doing targeting like this you get the fixed position to element you want     */
 .fixed-nav nav {
     position: fixed;
@@ -76,6 +82,11 @@ li.logo {
   transition: all .5s;
   font-weight: 600;
   font-size: 30px;
+}
+
+/*    this element is animated thanks to added class to body */
+.fixed-nav li.logo {
+    max-width: 500px;
 }
 
 li.logo a {

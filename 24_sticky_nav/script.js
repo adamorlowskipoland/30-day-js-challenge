@@ -14,3 +14,9 @@ function fixNav() {
 }
 
 window.addEventListener('scroll', fixNav);
+
+
+/*
+    NOCE: very nice thing is that we add only one class
+        to body element and we animated 3 things by editing code in css
+*/
