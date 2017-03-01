@@ -45,6 +45,24 @@
         console.log(this.classList.value);
     }
     
+    // default buble
+    divs.forEach(div => div.addEventListener('click', logText));
+    
+    // with capture
+    divs.forEach(div => div.addEventListener('click', logText, {
+        capture: true;
+    }));
+    
+    
+    function logText(e) {
+        console.log(this.classList.value);
+        e.stopPropagation(); // <-- stop bubling this event up ; works also on capturing donw
+    }
+    
+    // default buble
+    divs.forEach(div => div.addEventListener('click', logText));
+    
+    // with capture
     divs.forEach(div => div.addEventListener('click', logText, {
         capture: true;
     }));
