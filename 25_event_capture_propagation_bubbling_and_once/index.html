@@ -40,18 +40,19 @@
 <button></button>
 <script>
     const divs = document.querySelectorAll('div');
+    const button = document.querySelector('button');
     
     function logText(e) {
         console.log(this.classList.value);
     }
     
     // default buble
-    divs.forEach(div => div.addEventListener('click', logText));
+//    divs.forEach(div => div.addEventListener('click', logText));
     
     // with capture
-    divs.forEach(div => div.addEventListener('click', logText, {
-        capture: true;
-    }));
+//    divs.forEach(div => div.addEventListener('click', logText, {
+//        capture: true
+//    }));
     
     
     function logText(e) {
@@ -59,13 +60,18 @@
         e.stopPropagation(); // <-- stop bubling this event up ; works also on capturing donw
     }
     
-    // default buble
-    divs.forEach(div => div.addEventListener('click', logText));
-    
-    // with capture
+    // with once
     divs.forEach(div => div.addEventListener('click', logText, {
-        capture: true;
+        capture: false,
+        once: true // <-- listens for a click once, and then unbind itself -- works like elem.removeEventListener('click', logText);
     }));
+    
+    
+    button.addEventListener('click', function() {
+        console.log("Clicked!!!");
+    }, {
+        once: true      // clicking the button will work only the first time
+    });
     
     
 </script>
