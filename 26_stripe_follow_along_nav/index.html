@@ -214,7 +214,11 @@
     
     function handleEnter(){
         this.classList.add('trigger-enter');
-        setTimeout( () => this.classList.add('trigger-enter-active'), 150);
+        setTimeout( () => {
+            if (this.classList.contains('trigger-enter')) {
+                this.classList.add('trigger-enter-active');
+            }
+        } , 150);
         background.classList.add('open');
         
         // we do this here with this, couse there are 3 different .dropdowns so we need to find the right one dynamicly in the li
