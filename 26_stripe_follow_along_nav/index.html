@@ -224,11 +224,14 @@
         
         const cords = {
             height: dropdownCords.height,
-            width: dropdownCords.width
+            width: dropdownCords.width,
+            top: dropdownCords.top - navCords.top,
+            left: dropdownCords.left - navCords.left
         };
         
         background.style.setProperty('height', `${cords.height}px`);
         background.style.setProperty('width', `${cords.width}px`);
+        background.style.setProperty('transform', `translate(${cords.left}px, ${cords.top}px)`);
         console.log(navCords);
     }
     
