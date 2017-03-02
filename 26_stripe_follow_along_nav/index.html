@@ -215,11 +215,26 @@
     function handleEnter(){
         this.classList.add('trigger-enter');
         setTimeout( () => this.classList.add('trigger-enter-active'), 150);
-        console.log('in');
+        background.classList.add('open');
+        
+        // we do this here with this, couse there are 3 different .dropdowns so we need to find the right one dynamicly in the li
+        const dropdown = this.querySelector('.dropdown');
+        const dropdownCords = dropdown.getBoundingClientRect();
+        const navCords = nav.getBoundingClientRect();
+        
+        const cords = {
+            height: dropdownCords.height,
+            width: dropdownCords.width
+        };
+        
+        background.style.setProperty('height', `${cords.height}px`);
+        background.style.setProperty('width', `${cords.width}px`);
+        console.log(navCords);
     }
     
     function handleLeave(){
         this.classList.remove('trigger-enter', 'trigger-enter-active');
+        background.classList.remove('open');
         
         console.log('out');
         
