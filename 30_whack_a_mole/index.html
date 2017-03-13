@@ -38,6 +38,7 @@
   const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
+let score = 0;
     
 function randomTime (min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -73,10 +74,25 @@ function peep() {
 function startGame() {
     scoreBoard.textContent = 0;
     timeUp = false;
+    score = 0;
     peep();
     setTimeout(() => timeUp = true, 10000);
 }
+    
+function bonk (e) {
+    // is trusted always change to true when you click on it
+    if (!e.isTrusted) return // cheater!
+    score++;
+    this.classList.remove('up');
+    scoreBoard.textContent = score;
+    console.log(e);
+}
+    
+moles.forEach(mole => mole.addEventListener('click', bonk));
 
+    
+// localsotere the highest score
+// add ease mode and hard mode
 </script>
 </body>
 </html>
