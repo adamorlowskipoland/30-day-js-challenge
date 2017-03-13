@@ -45,7 +45,6 @@ function displayEndTime (timestamp) {
 function startTimer () {
 //    console.log(this);
 //    console.log(this.dataset);
-    
     // this is what we need
 //    console.log(this.dataset.time);
     
