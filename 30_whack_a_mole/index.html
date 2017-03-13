@@ -50,7 +50,7 @@ function randomHole (holes) {
     const idx = Math.floor(Math.random() * holes.length);
     const hole = holes[idx];
     if (hole === lastHole) {
-        console.log("that's the same hole as last time");
+//        console.log("that's the same hole as last time");
         return randomHole(holes);
     }
     
@@ -68,7 +68,7 @@ function peep() {
         hole.classList.remove('up');
         if (!timeUp) peep();
     }, time);
-    console.log(time, hole);
+//    console.log(time, hole);
 }
     
 function startGame() {
@@ -85,7 +85,7 @@ function bonk (e) {
     score++;
     this.classList.remove('up');
     scoreBoard.textContent = score;
-    console.log(e);
+//    console.log(e);
 }
     
 moles.forEach(mole => mole.addEventListener('click', bonk));
